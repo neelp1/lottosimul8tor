@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Lottery Simulator based on Oz Lotto">
+	<meta name="keywords" content="Lottery,Lotto,Simulator,Simul8tor,Oz Lotto">
+	<meta name="author" content="Neel Patel">
+	<title>Lottery Simulator</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<header>
+		<h1>Lottery Simulator</h1>
+		<ul>
+		  <li><a href="index.html">Home</a></li>
+		  <li><a href="about.html">About</a></li>
+		  <li><a href="contact.html">Contact</a></li>
+		</ul>
+	</header>
+
+	<div id="button-container">
+		<div id="showA" class="formButton">Single</div>
+		<div id="showB" class="formButton">Multiple</div>
+	</div>
+	<main>
+		<form id="formA">
+			Number of games:<br>
+			<input type="number" id="numberOfGames" name="field">
+			<br>
+			<input type="button" onclick="checkValid()" value="Play">
+			<br>
+
+			<p id="cost"></p>
+
+			<p id="profit"></p>
+			<p id="total"></p>
+
+		</form>
+
+		<form id="formB">
+			Number of games:<br>
+			<input type="number" id="numberOfGames2" name="fieldB">
+			<br><br>
+			Number of weeks:<br>
+			<input type="number" id="numberOfWeeks" name="fieldC">
+			<br>
+			<input type="button" onclick="checkWeeksValid()" value="Play">
+			<br>
+			<div id="insertTable"></div>
+		</form>
+
+		<hr>
+		<p id="totalLosses"></p>
+		<p id="totalProfits"></p>
+		<p id="summary"></p>
+
+	</main>
+
+	<footer>
+		<h5>Disclaimer</h5>
+		<p>Results are completely random and the probability of winning the lottery
+		is extremely low.</p>
+
+	</footer>
+
+</body>
+
+	<script src="scripts/jquery-2.2.1.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+	<script src="scripts/simulation.js"></script>
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-61302349-2', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+	<script type="text/html" id="test_tmpl">
+		<table id="drawNumbers">
+			<caption>Draw Numbers</caption>
+			<tr>
+				<th>Main Numbers</th>
+				<td id="draw1"></td>
+				<td id="draw2"></td>
+				<td id="draw3"></td>
+				<td id="draw4"></td>
+				<td id="draw5"></td>
+				<td id="draw6"></td>
+				<td id="draw7"></td>
+			</tr>
+			<tr>
+				<th>Supplementary Numbers</th>
+				<td id="draw8"></td>
+				<td id="draw9"></td>
+			</tr>
+		</table>
+	</script>
+
+	<script type="text/html" id="multiple_tmpl">
+		<table id="MultipleWeeksTable">
+			<caption>Multiple Weeks</caption>
+			<tr>
+				<th>Divsion</th>
+				<th>Number of Wins</th>
+				<th>Total Amount Won</th>
+			</tr>
+			<tr>
+				<td id="division1">1</td>
+				<td id="division1Wins">0</td>
+				<td id="division1Amount">0</td>
+			</tr>
+			<tr>
+				<td id="division2">2</td>
+				<td id="division2Wins">0</td>
+				<td id="division2Amount">0</td>
+			</tr>
+			<tr>
+				<td id="division3">3</td>
+				<td id="division3Wins">0</td>
+				<td id="division3Amount">0</td>
+			</tr>
+			<tr>
+				<td id="division4">4</td>
+				<td id="division4Wins">0</td>
+				<td id="division4Amount">0</td>
+			</tr>
+			<tr>
+				<td id="division5">5</td>
+				<td id="division5Wins">0</td>
+				<td id="division5Amount">0</td>
+			</tr>
+			<tr>
+				<td id="division6">6</td>
+				<td id="division6Wins">0</td>
+				<td id="division6Amount">0</td>
+			</tr>
+			<tr>
+				<td id="division7">7</td>
+				<td id="division7Wins">0</td>
+				<td id="division7Amount">0</td>
+			</tr>
+		</table>
+	</script>
+
+	<script>
+		jQuery(document).ready(function($) {
+			// hide the forms when page is ready
+
+			/*
+			jQuery.validator.addMethod("minNum", function(value) {
+				return value > 0;
+			}, "Number must be greater than zero");
+			*/
+
+			$("#formA").validate({
+			  rules: {
+				field:{
+					required: true,
+					number: true,
+					min: 1
+				}
+			  }
+			});
+
+			$("#formB").validate({
+			  rules: {
+				fieldB:{
+					required: true,
+					number: true,
+					min: 1
+				},
+				fieldC:{
+					required: true,
+					number: true,
+					min: 1
+				}
+			  }
+			});
+
+			$('#formA').hide();
+			$('#formB').hide();
+
+			$('#showA').click(function(){
+				$('#formB').hide();
+				$('#formA').show();
+			});
+
+			$('#showB').click(function(){
+				$('#formA').hide();
+				$('#formB').show();
+			});
+		});
+	</script>
+
+</html>
