@@ -4,7 +4,7 @@ body{
 
 main, #button-container{
 	margin-left: auto;
-    margin-right: auto;
+  margin-right: auto;
 	position: center;
 	height: 100%;
 	width: 450px;
@@ -19,7 +19,7 @@ background-color: #99C2FF;
 }
 header{
 	margin-left: auto;
-    margin-right: auto;
+  margin-right: auto;
 	position: center;
 	height: 80px;
 	width: 450px;
@@ -29,7 +29,7 @@ header{
 
 footer{
 	margin-left: auto;
-    margin-right: auto;
+  margin-right: auto;
 	position: center;
 	height: 100px;
 	width: 450px;
@@ -76,7 +76,6 @@ table{
 	width: 100%;
 }
 
-
 th, td{
 	/*border: 1px solid black;*/
 	padding: 4px;
@@ -95,7 +94,7 @@ caption{
 	width: 60px;
 	background-color: #F0D1FF;
 	border: 2px solid;
-    border-radius: 5px;
+  border-radius: 5px;
 	text-align: center;
 	vertical-align: middle;
 	display: inline-block;
@@ -110,4 +109,13 @@ hr{
 #contact > p {
 	margin-top: 0.2em;
 
+}
+
+.bitcoin {
+	margin-left: auto;
+  margin-right: auto;
+	position: center;
+	height: 100%;
+	width: 450px;
+	color: white;
 }
