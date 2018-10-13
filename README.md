@@ -11,3 +11,4 @@ For each week, the draw numbers are randomly generated. Each game
 numbers are randomly generated.
 
 ## Usage
+Just double click on index.html.
