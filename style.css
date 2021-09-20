@@ -1,5 +1,5 @@
 body{
-	background: linear-gradient(to right,#3A3B3C, #B3B3B3); /* Standard syntax */
+	background: linear-gradient(to right,#659DBD, #659DBF); /* Standard syntax */
 }
 
 main, #button-container{
@@ -8,13 +8,13 @@ main, #button-container{
 	position: center;
 	height: 100%;
 	width: 450px;
-	background-color: #E6F0FF;
+	background-color: #FBEEC1;
 	padding-left: 5px;
 	padding-top: 1px;
 }
 
 header, footer{
-background-color: #CCFFFF;
+background-color: #FBEEC1;
 
 }
 header{
@@ -58,7 +58,7 @@ li{
 h1{
 	font-family: Tahoma, Geneva, sans-serif;
 	font-size: 120%;
-	-webkit-text-stroke: 1px #CCCCDD;
+	-webkit-text-stroke: 1px #F0FFFF;
 	color: #FFFFFF;
 	line-height: 0.1;
 	padding: 5px;
@@ -92,7 +92,7 @@ caption{
 .formButton{
 	height: 25px;
 	width: 60px;
-	background-color: #F0D1FF;
+	background-color: #F0FFFF;
 	border: 2px solid;
   border-radius: 5px;
 	text-align: center;
