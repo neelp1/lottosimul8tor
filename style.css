@@ -1,5 +1,5 @@
 body{
-	background: linear-gradient(to right,#3385FF, #66A3FF); /* Standard syntax */
+	background: linear-gradient(to right,#3A3B3C, #B3B3B3); /* Standard syntax */
 }
 
 main, #button-container{
@@ -14,7 +14,7 @@ main, #button-container{
 }
 
 header, footer{
-background-color: #99C2FF;
+background-color: #CCFFFF;
 
 }
 header{
